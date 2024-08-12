@@ -1,0 +1,20 @@
+﻿@model B05ASPC03_DataAnnotation.Models.BlogCategory
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create Category</h2>
+@using (Html.BeginForm("Create", "BlogCategory", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+                <div >
+                    <label>Name</label>
+                    @Html.EditorFor(m=>m.Name)
+                </div>
+                <div>
+                    <input type="file" name="PostedFile" id="PostedFile" />
+                 </div>
+                 <div>
+                     <input type="submit" value="Save" />
+                 </div>
+            }
+

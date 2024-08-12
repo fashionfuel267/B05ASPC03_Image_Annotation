@@ -1,0 +1,25 @@
+﻿@model IEnumerable<B05ASPC03_DataAnnotation.Models.BlogCategory>
+@{
+    ViewBag.Title = "Blogs Category";
+}
+@Html.ActionLink("Add", "Create", "BlogCategory", new {@class="btn-lg btn-primary"})
+<h2>Index</h2>
+<table class="table table-danger">
+    <tr>
+        <th>Name</th>
+        <th>Image</th>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>
+                <img src="@Url.Content(@item.ImagePath)" alt="@item.Name" />
+         
+            </td>
+
+        </tr>
+    }
+</table>
+
