@@ -1,0 +1,36 @@
+﻿@model B05ASPC03_DataAnnotation.Models.Blog
+@{
+    ViewBag.Title = "Create";
+}
+@Html.ValidationSummary()
+
+<h2>Create Category</h2>
+@using (Html.BeginForm("Create", "Blogs", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div>
+        <label>Category</label>
+
+        @Html.DropDownListFor(model => model.CategoryId, (IEnumerable<SelectListItem>)ViewBag.CategoryId, "Select Category", new { @class = "form-control col-md-12" })
+        @Html.ValidationMessageFor(m=>m.CategoryId)
+    </div>
+    <div>
+        <label>Name</label>
+        @Html.EditorFor(m => m.Name)
+        @Html.ValidationMessageFor(m => m.CategoryId)
+    </div>
+    <div>
+        <label>Description</label>
+        @Html.TextAreaFor(m => m.Description)
+        @Html.ValidationMessageFor(m => m.Description)
+    </div>
+    <div>
+        <input type="file" name="PostedFile" id="PostedFile" />
+    </div>
+    <div>
+        <input type="submit" value="Save" />
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
